@@ -3,3 +3,32 @@
     margin: 0;
     box-sizing: border-box;
 }
+
+#grid {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100vh;
+}
+
+.square-easy {
+    flex-basis: calc(100% / 10);
+    height: calc(100% / 10);
+    border: 1px solid black;
+}
+
+.square-medium {
+    flex-basis: calc(100% / 9);
+    height: calc(100% / 9);
+    border: 1px solid black;
+}
+
+.square-hard {
+    flex-basis: calc(100% / 7);
+    height: calc(100% / 7);
+    border: 1px solid black;
+}
+
+.pressed {
+    background-color: deepskyblue;
+}
