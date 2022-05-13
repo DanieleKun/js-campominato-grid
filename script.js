@@ -14,10 +14,17 @@ const createMyEl = (tagType) => {
     return myElement;
 }
 
+
+const myRandomNumArr = myRandomUniqNum (100, 1, 100);
+console.log(myRandomNumArr);
+
 // ciclo for per creare dinamicamente elementi in pagina
-for (let i = 0; i < 100; i++){
+for (let i = 0; i < myRandomNumArr.length; i++){
     const myDivEl = createMyEl ("div");
     myGrid.append(myDivEl);
+
+    let arrItems = myRandomNumArr[i]
+    myDivEl.append(arrItems);
 
     // Cambio colore alla  cella cliccata dall'utente
     myDivEl.addEventListener("click",
@@ -27,12 +34,20 @@ for (let i = 0; i < 100; i++){
     )
 }
 
+// Aggiungo numeri casuali in ordine sparso nelle varie celle
+function myRandomUniqNum (myNumItems, numMin, numMax) {
+    const arrNum = [];
+    while (arrNum.length < myNumItems){
+        let myRandomNum = getRandomNum(numMin, numMax);
+        if(!arrNum.includes(myRandomNum)){
+            arrNum.push(myRandomNum);
+        }
+        return arrNum;
+    }
+}
 
 
-
-
-
-function randomNum(numMin, numMax){
+function getRandomNum(numMin, numMax){
     let resultNum = Math.floor(Math.random() * (numMax - numMin + 1)) + numMin;
     return resultNum;
 }
